@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+      "target": "https://www.google.nl",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }
