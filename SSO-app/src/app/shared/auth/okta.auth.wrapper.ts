@@ -9,16 +9,13 @@ export class OktaAuthWrapper {
   private authClient: any;
 
   constructor(private oauthService: OAuthService) {
-    console.log(this.oauthService);
     this.authClient = new OktaAuth({
       url: this.oauthService.issuer
     });
-    console.log(this.authClient);
   }
 
   login(username: string, password: string): Promise<any> {
     return this.oauthService.createAndSaveNonce().then(nonce => {
-      console.log("CREATEANDSAVENONCE");
       return this.authClient.signIn({
         username: username,
         password: password

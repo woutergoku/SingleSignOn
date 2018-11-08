@@ -15,6 +15,7 @@ export class HomeComponent {
   constructor(private oauthService: OAuthService, private oktaAuthWrapper: OktaAuthWrapper) { }
 
   login() {
+    //console.log(this.oauthService.initImplicitFlow());
     this.oauthService.initImplicitFlow();
   }
 
@@ -23,7 +24,6 @@ export class HomeComponent {
   }
 
   loginWithPassword() {
-    console.log("LOGINWITHPASSWORD");
     this.oktaAuthWrapper.login(this.username, this.password)
       .then(_ => console.debug('logged in'))
       .catch(err => console.error('error logging in', err));
